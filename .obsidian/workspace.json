@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Python/Python.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Python"
             }
           }
         ],
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Python/Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "README 的反向链接列表"
+              "title": "Python 的反向链接列表"
             }
           },
           {
@@ -184,11 +184,12 @@
   },
   "active": "5b522ff8c0c17ead",
   "lastOpenFiles": [
-    "欢迎.md",
-    "Python/Python.md",
-    "Python/关于包的基础.md",
+    "Python/python包.md",
+    "AI相关/Google A2A.md",
+    "AI相关/MCP.md",
     "README.md",
-    "Python",
-    "AI相关/Google A2A.md"
+    "Python/Python.md",
+    "欢迎.md",
+    "Python"
   ]
 }
