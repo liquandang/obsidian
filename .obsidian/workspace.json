@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python.md",
+                "file": "AI相关/MCP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python"
+              "title": "MCP"
             }
           }
         ],
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/Python.md",
+                "file": "AI相关/MCP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Python 的反向链接列表"
+              "title": "MCP 的反向链接列表"
             }
           },
           {
@@ -184,11 +184,11 @@
   },
   "active": "5b522ff8c0c17ead",
   "lastOpenFiles": [
+    "Python/Python.md",
     "Python/python包.md",
     "AI相关/Google A2A.md",
     "AI相关/MCP.md",
     "README.md",
-    "Python/Python.md",
     "欢迎.md",
     "Python"
   ]
