@@ -1,0 +1,43 @@
+{
+  "editorStatus": {
+    "isTextInserting": false
+  },
+  "providers": [
+    {
+      "tag": "DeepSeek",
+      "vendor": "DeepSeek",
+      "options": {
+        "apiKey": "",
+        "baseURL": "https://api.deepseek.com",
+        "model": "deepseek-chat",
+        "parameters": {}
+      }
+    }
+  ],
+  "systemTags": [
+    "System",
+    "系统"
+  ],
+  "newChatTags": [
+    "NewChat",
+    "新对话"
+  ],
+  "userTags": [
+    "User",
+    "我"
+  ],
+  "roleEmojis": {
+    "assistant": "✨",
+    "system": "🔧",
+    "newChat": " 🚀",
+    "user": "💬"
+  },
+  "promptTemplates": [],
+  "enableInternalLink": true,
+  "answerDelayInMilliseconds": 2000,
+  "confirmRegenerate": true,
+  "enableTagSuggest": true,
+  "tagSuggestMaxLineLength": 20,
+  "enableExportToJSONL": false,
+  "enableReplaceTag": false
+}
