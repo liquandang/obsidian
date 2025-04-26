@@ -1,7 +1,7 @@
 
 [MCP 协议：为什么 Streamable HTTP 是最佳选择？](# https://developer.aliyun.com/article/1661971)
 
-``` MARKUP
+``` python
 
 MCP（Model Context Protocol）官方关于支持 **Streamable HTTP** 的公告和变更主要出现在以下几个来源：
 
@@ -99,33 +99,58 @@ _这里对比的是社区 Python 版本的_ _GitHUB MCP Server__【2】_ _和 Hi
 
 ## 客户端复杂度对比
 
-  
 
-Streamable HTTP 支持无状态的服务和有状态的服务，目前的大部分场景无状态的 Streamable HTTP 的可以解决，通过对比两种传输方案的客户端实现代码，可以直观地看到无状态的 Streamable HTTP 的客户端实现简洁性。
-
-#### 
+Streamable HTTP 支持无状态的服务和有状态的服务，目前的大部分场景无状态的 Streamable HTTP 的可以解决，通过对比两种传输方案的客户端实现代码，可以直观地看到无状态的 Streamable HTTP 的客户端实现简洁性。 
 
 #### **HTTP + SSE 客户端样例代码**
 
-  
-
+```python
 class SSEClient:
-    def __init__(self, url: str, headers: dict = None):        self.url = url        self.headers = headers or {}        self.event_source = None        self.endpoint = None
-        async def connect(self):            # 1. 建立 SSE 连接            async with aiohttp.ClientSession(headers=self.headers) as session:                self.event_source = await session.get(self.url)
-                # 2. 处理连接事件                print('SSE connection established')
-                # 3. 处理消息事件                async for line in self.event_source.content:                    if line:                        message = json.loads(line)                        await self.handle_message(message)
-                        # 4. 处理错误和重连                        if self.event_source.status != 200:                            print(f'SSE error: {self.event_source.status}')                            await self.reconnect()
-        async def send(self, message: dict):            # 需要额外的 POST 请求发送消息            async with aiohttp.ClientSession(headers=self.headers) as session:                async with session.post(self.endpoint, json=message) as response:                    return await response.json()
-                async def handle_message(self, message: dict):                    # 处理接收到的消息                    print(f'Received message: {message}')
-    async def reconnect(self):        # 实现重连逻辑        print('Attempting to reconnect...')        await self.connect()
+    def __init__(self, url: str, headers: dict = None):        
+	    self.url = url        
+	    self.headers = headers or {}        
+	    self.event_source = None        
+	    self.endpoint = None
+        async def connect(self):            
+        # 1. 建立 SSE 连接            
+		    async with aiohttp.ClientSession(headers=self.headers) as session:               self.event_source = await session.get(self.url)
+        # 2. 处理连接事件                
+	        print('SSE connection established')
+        # 3. 处理消息事件                
+        async for line in self.event_source.content:                    
+	        if line:                        
+		        message = json.loads(line)                        
+		        await self.handle_message(message)
+        # 4. 处理错误和重连                        
+        if self.event_source.status != 200:
+		    print(f'SSE error: {self.event_source.status}')                              await self.reconnect()
+		    
+        async def send(self, message: dict):            
+        # 需要额外的 POST 请求发送消息            
+        async with aiohttp.ClientSession(headers=self.headers) as session:               async with session.post(self.endpoint, json=message) as response:                return await response.json()
+        async def handle_message(self, message: dict):                    
+        # 处理接收到的消息                    
+        print(f'Received message: {message}')
+	    async def reconnect(self):        
+	    # 实现重连逻辑        
+	    print('Attempting to reconnect...')        
+	    await self.connect()
+```
 
 #### **Streamable HTTP 客户端样例代码**
 
-  
-
+```python
 class StreamableHTTPClient:
     def __init__(self, url: str, headers: dict = None):        self.url = url        self.headers = headers or {}        
-    async def send(self, message: dict):        # 1. 发送 POST 请求        async with aiohttp.ClientSession(headers=self.headers) as session:            async with session.post( self.url, json=message,                headers={'Content-Type': 'application/json'}            ) as response:                # 2. 处理响应                if response.status == 200:                    return await response.json()                else:                    raise Exception(f'HTTP error: {response.status}')
+    async def send(self, message: dict):        
+    # 1. 发送 POST 请求        
+		async with aiohttp.ClientSession(headers=self.headers) as session:               async with session.post( self.url, json=message, headers={'Content-Type': 'application/json'}) as response:                
+    # 2. 处理响应                
+	    if response.status == 200:                    
+		    return await response.json()                
+		else:                    
+			raise Exception(f'HTTP error: {response.status}')
+```
 
   
 
