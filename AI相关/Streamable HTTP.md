@@ -28,7 +28,7 @@ MCP 官方并未单独发布公告，但通过 **GitHub PR 合并** 和 **协
 
 - [MCP GitHub PR #206](https://github.com/modelcontextprotocol/specification/pull/206)
     
-- [MCP 2025-03-26 规范更新](https://github.com/modelcontextprotocol/specification/tree/main/docs/specification/2025-03-26) 6
+- [MCP 2025-03-26 规范更新](https://github.com/modelcontextprotocol/specification/tree/main/docs/specification/2025-03-26) 
 ```
 
 ## 为什么选择 Streamable HTTP?
