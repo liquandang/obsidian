@@ -996,7 +996,8 @@ public class DefaultMcpClient implements McpClient {
         reconnectInterval = getOrDefault(builder.reconnectInterval, Duration.ofSeconds(5));  
         toolExecutionTimeoutErrorMessage =  
                 getOrDefault(builder.toolExecutionTimeoutErrorMessage, "There was a timeout executing the tool");  
-        RESULT_TIMEOUT = JsonNodeFactory.instance.objectNode();  
+        RESULT_TIMEOUT = JsonNodeFactory.instance.objectNode(); 
+        // 这个很重要，如果server的工具发生变化，则会 toolListOutOfDate设置为true，下次执行listtools的时候，会从服务器再拉一份最新的。
         messageHandler = new McpOperationHandler(  
                 pendingOperations, transport, logHandler::handleLogMessage, () -> toolListOutOfDate.set(true));  
         ((ObjectNode) RESULT_TIMEOUT)  
@@ -1018,6 +1019,7 @@ public class DefaultMcpClient implements McpClient {
     }  
   
     private void initialize() {  
+	    // 连接mcpserver，建立sse连接
         transport.start(messageHandler);  
         long operationId = idGenerator.getAndIncrement();  
         McpInitializeRequest request = new McpInitializeRequest(operationId);  
@@ -1266,78 +1268,316 @@ public class DefaultMcpClient implements McpClient {
             log.warn("Cannot close MCP transport", e);  
         }  
     }  
+}
+```
+
+
+``` JAVA
+package dev.langchain4j.mcp.client.transport.http;  
   
-    public static class Builder {  
+... 
   
-        private String toolExecutionTimeoutErrorMessage;  
-        private McpTransport transport;  
-        private String clientName;  
-        private String clientVersion;  
-        private String protocolVersion;  
-        private Duration toolExecutionTimeout;  
-        private Duration resourcesTimeout;  
-        private Duration pingTimeout;  
-        private Duration promptsTimeout;  
-        private McpLogMessageHandler logHandler;  
-        private Duration reconnectInterval;  
+public class HttpMcpTransport implements McpTransport {  
   
-        public Builder transport(McpTransport transport) {  
-            this.transport = transport;  
-            return this;        }  
+    private static final Logger log = LoggerFactory.getLogger(HttpMcpTransport.class);  
+    private final String sseUrl;  
+    private final OkHttpClient client;  
+    private final boolean logResponses;  
+    private final boolean logRequests;  
+    private EventSource mcpSseEventListener;  
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();  
+    private volatile Runnable onFailure;  
   
-        /**  
-         * Sets the name that the client will use to identify itself to the         * MCP server in the initialization message. The default value is         * "langchain4j".         */        public Builder clientName(String clientName) {  
-            this.clientName = clientName;  
-            return this;        }  
+    // this is obtained from the server after initializing the SSE channel  
+    private volatile String postUrl;  
+    private volatile McpOperationHandler messageHandler;  
   
-        /**  
-         * Sets the version string that the client will use to identify         * itself to the MCP server in the initialization message. The         * default value is "1.0".         */        public Builder clientVersion(String clientVersion) {  
-            this.clientVersion = clientVersion;  
-            return this;        }  
-  
-        /**  
-         * Sets the protocol version that the client will advertise in the         * initialization message. The default value right now is         * "2024-11-05", but will change over time in later langchain4j         * versions.         */        public Builder protocolVersion(String protocolVersion) {  
-            this.protocolVersion = protocolVersion;  
-            return this;        }  
-  
-        /**  
-         * Sets the timeout for tool execution.         * This value applies to each tool execution individually.         * The default value is 60 seconds.         * A value of zero means no timeout.         */        public Builder toolExecutionTimeout(Duration toolExecutionTimeout) {  
-            this.toolExecutionTimeout = toolExecutionTimeout;  
-            return this;        }  
-  
-        /**  
-         * Sets the timeout for resource-related operations (listing resources as well as reading the contents of a resource).         * The default value is 60 seconds.         * A value of zero means no timeout.         */        public Builder resourcesTimeout(Duration resourcesTimeout) {  
-            this.resourcesTimeout = resourcesTimeout;  
-            return this;        }  
-  
-        /**  
-         * Sets the timeout for prompt-related operations (listing prompts as well as rendering the contents of a prompt).         * The default value is 60 seconds.         * A value of zero means no timeout.         */        public Builder promptsTimeout(Duration promptsTimeout) {  
-            this.promptsTimeout = promptsTimeout;  
-            return this;        }  
-  
-        /**  
-         * Sets the error message to return when a tool execution times out.         * The default value is "There was a timeout executing the tool".         */        public Builder toolExecutionTimeoutErrorMessage(String toolExecutionTimeoutErrorMessage) {  
-            this.toolExecutionTimeoutErrorMessage = toolExecutionTimeoutErrorMessage;  
-            return this;        }  
-  
-        /**  
-         * Sets the log message handler for the client.         */        public Builder logHandler(McpLogMessageHandler logHandler) {  
-            this.logHandler = logHandler;  
-            return this;        }  
-  
-        /**  
-         * The timeout to apply when waiting for a ping response.         * Currently, this is only used in the health check - if the         * server does not send a pong within this timeframe, the health         * check will fail. The timeout is 10 seconds.         */        public Builder pingTimeout(Duration pingTimeout) {  
-            this.pingTimeout = pingTimeout;  
-            return this;        }  
-  
-        /**  
-         * The delay before attempting to reconnect after a failed connection.         * The default is 5 seconds.         */        public Builder reconnectInterval(Duration reconnectInterval) {  
-            this.reconnectInterval = reconnectInterval;  
-            return this;        }  
-  
-        public DefaultMcpClient build() {  
-            return new DefaultMcpClient(this);  
+    public HttpMcpTransport(Builder builder) {  
+        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();  
+        Duration timeout = getOrDefault(builder.timeout, Duration.ofSeconds(60));  
+        httpClientBuilder.callTimeout(timeout);  
+        httpClientBuilder.connectTimeout(timeout);  
+        httpClientBuilder.readTimeout(timeout);  
+        httpClientBuilder.writeTimeout(timeout);  
+        this.logRequests = builder.logRequests;  
+        if (builder.logRequests) {  
+            httpClientBuilder.addInterceptor(new McpRequestLoggingInterceptor());  
         }  
+        this.logResponses = builder.logResponses;  
+        sseUrl = ensureNotNull(builder.sseUrl, "Missing SSE endpoint URL");  
+        client = httpClientBuilder.build();  
+    }  
+  
+    @Override  
+    public void start(McpOperationHandler messageHandler) {  
+        this.messageHandler = messageHandler;  
+        mcpSseEventListener = startSseChannel(logResponses);  
+    }  
+  
+    @Override  
+    public CompletableFuture<JsonNode> initialize(McpInitializeRequest operation) {  
+        Request httpRequest = null;  
+        Request initializationNotification = null;  
+        try {  
+            httpRequest = createRequest(operation);  
+            initializationNotification = createRequest(new InitializationNotification());  
+        } catch (JsonProcessingException e) {  
+            return CompletableFuture.failedFuture(e);  
+        }  
+        final Request finalInitializationNotification = initializationNotification;  
+        return execute(httpRequest, operation.getId())  
+                .thenCompose(originalResponse -> execute(finalInitializationNotification, null)  
+                        .thenCompose(nullNode -> CompletableFuture.completedFuture(originalResponse)));  
+    }  
+  
+    @Override  
+    public CompletableFuture<JsonNode> executeOperationWithResponse(McpClientMessage operation) {  
+        try {  
+            Request httpRequest = createRequest(operation);  
+            return execute(httpRequest, operation.getId());  
+        } catch (JsonProcessingException e) {  
+            return CompletableFuture.failedFuture(e);  
+        }  
+    }  
+  
+    @Override  
+    public void executeOperationWithoutResponse(McpClientMessage operation) {  
+        try {  
+            Request httpRequest = createRequest(operation);  
+            execute(httpRequest, null);  
+        } catch (JsonProcessingException e) {  
+            throw new RuntimeException(e);  
+        }  
+    }  
+  
+    @Override  
+    public void checkHealth() {  
+        // no transport-specific checks right now  
+    }  
+  
+    @Override  
+    public void onFailure(Runnable actionOnFailure) {  
+        this.onFailure = actionOnFailure;  
+    }  
+  
+    private CompletableFuture<JsonNode> execute(Request request, Long id) {  
+        CompletableFuture<JsonNode> future = new CompletableFuture<>();  
+        if (id != null) {  
+            messageHandler.startOperation(id, future);  
+        }  
+        client.newCall(request).enqueue(new Callback() {  
+            @Override  
+            public void onFailure(Call call, IOException e) {  
+                future.completeExceptionally(e);  
+            }  
+  
+            @Override  
+            public void onResponse(Call call, Response response) throws IOException {  
+                int statusCode = response.code();  
+                if (!isExpectedStatusCode(statusCode)) {  
+                    future.completeExceptionally(new RuntimeException("Unexpected status code: " + statusCode));  
+                }  
+                // For messages with null ID, we don't wait for a response in the SSE channel  
+                if (id == null) {  
+                    future.complete(null);  
+                }  
+            }  
+        });  
+        return future;  
+    }  
+  
+    private boolean isExpectedStatusCode(int statusCode) {  
+        return statusCode >= 200 && statusCode < 300;  
+    }  
+
+	// sse
+    private EventSource startSseChannel(boolean logResponses) {  
+        Request request = new Request.Builder().url(sseUrl).build();  
+        CompletableFuture<String> initializationFinished = new CompletableFuture<>();  
+        SseEventListener listener =  
+                new SseEventListener(messageHandler, logResponses, initializationFinished, onFailure);  
+        // 客户端创建EventSource，执行回调
+        EventSource eventSource = EventSources.createFactory(client).newEventSource(request, listener);  
+        // wait for the SSE channel to be created, receive the POST url from the server, throw an exception if that  
+        // failed        try {  
+            int timeout = client.callTimeoutMillis() > 0 ? client.callTimeoutMillis() : Integer.MAX_VALUE;  
+            String relativePostUrl = initializationFinished.get(timeout, TimeUnit.MILLISECONDS);  
+            postUrl = buildAbsolutePostUrl(relativePostUrl);  
+            log.debug("Received the server's POST URL: {}", postUrl);  
+        } catch (Exception e) {  
+            throw new RuntimeException(e);  
+        }  
+        return eventSource;  
+    }  
+  
+    private String buildAbsolutePostUrl(String relativePostUrl) {  
+        try {  
+            return URI.create(this.sseUrl).resolve(relativePostUrl).toString();  
+        } catch (Exception e) {  
+            throw new RuntimeException(e);  
+        }  
+    }  
+  
+    private Request createRequest(McpClientMessage message) throws JsonProcessingException {  
+        return new Request.Builder()  
+                .url(postUrl)  
+                .header("Content-Type", "application/json")  
+                .post(RequestBody.create(OBJECT_MAPPER.writeValueAsBytes(message)))  
+                .build();  
+    }  
+  
+    @Override  
+    public void close() throws IOException {  
+        if (mcpSseEventListener != null) {  
+            mcpSseEventListener.cancel();  
+        }  
+        if (client != null) {  
+            client.dispatcher().executorService().shutdown();  
+        }  
+    }    
+}
+```
+
+[[SSE（server-send-events）]]监听器，监听来自服务端的回调
+``` JAVA
+package dev.langchain4j.mcp.client.transport.http;  
+...
+  
+public class SseEventListener extends EventSourceListener {  
+  
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();  
+    private static final Logger log = LoggerFactory.getLogger(SseEventListener.class);  
+    private static final Logger trafficLog = LoggerFactory.getLogger("MCP");  
+    private final boolean logEvents;  
+    // this will contain the POST url for sending commands to the server  
+    private final CompletableFuture<String> initializationFinished;  
+    private final McpOperationHandler messageHandler;  
+    private final Runnable onFailure;  
+  
+    public SseEventListener(  
+            McpOperationHandler messageHandler,  
+            boolean logEvents,  
+            CompletableFuture initializationFinished,  
+            Runnable onFailure) {  
+        this.messageHandler = messageHandler;  
+        this.logEvents = logEvents;  
+        this.initializationFinished = initializationFinished;  
+        this.onFailure = onFailure;  
+    }  
+
+
+    @Override  
+    public void onClosed(EventSource eventSource) {  
+        log.debug("SSE channel closed");  
+    }  
+
+	  // 接受服务器发回的数据，如果是message，则做业务处理，如果是endpoint代表sse通道已经建立完毕。
+    @Override  
+    public void onEvent(EventSource eventSource, String id, String type, String data) {  
+        if (type.equals("message")) {  
+            if (logEvents) {  
+                trafficLog.info("< {}", data);  
+            }  
+            try {  
+                JsonNode jsonNode = OBJECT_MAPPER.readTree(data); 
+                // 调用handle，见如下类 
+                messageHandler.handle(jsonNode);  
+            } catch (JsonProcessingException e) {  
+                log.warn("Failed to parse JSON message: {}", data, e);  
+            }  
+        } else if (type.equals("endpoint")) {  
+            if (initializationFinished.isDone()) {  
+                log.warn("Received endpoint event after initialization");  
+                return;            }  
+            initializationFinished.complete(data);  
+        }  
+    }  
+  
+    @Override  
+    public void onFailure(EventSource eventSource, Throwable t, Response response) {  
+        if (!initializationFinished.isDone()) {  
+            if (t != null) {  
+                initializationFinished.completeExceptionally(t);  
+            } else if (response != null) {  
+                initializationFinished.completeExceptionally(  
+                        new RuntimeException("The server returned: " + response.message()));  
+            }  
+        }  
+        if (t != null && (t.getMessage() == null || !t.getMessage().contains("Socket closed"))) {  
+            log.warn("SSE channel failure", t);  
+            if (onFailure != null) {  
+                onFailure.run();  
+            }  
+        }  
+    }  
+  
+    @Override  
+    public void onOpen(EventSource eventSource, Response response) {  
+        log.debug("Connected to SSE channel at {}", response.request().url());  
     }  
 }
 ```
+
+``` JAVA
+package dev.langchain4j.mcp.client.transport;  
+  
+...  
+public class McpOperationHandler {  
+  
+    private final Map<Long, CompletableFuture<JsonNode>> pendingOperations;  
+    private static final Logger log = LoggerFactory.getLogger(McpOperationHandler.class);  
+    private final McpTransport transport;  
+    private final Consumer<McpLogMessage> logMessageConsumer;  
+    private final Runnable onToolListUpdate;  
+  
+    public McpOperationHandler(  
+            Map<Long, CompletableFuture<JsonNode>> pendingOperations,  
+            McpTransport transport,  
+            Consumer<McpLogMessage> logMessageConsumer,  
+            Runnable onToolListUpdate) {  
+        this.pendingOperations = pendingOperations;  
+        this.transport = transport;  
+        this.logMessageConsumer = logMessageConsumer;  
+        this.onToolListUpdate = onToolListUpdate;  
+    }  
+  
+    public void handle(JsonNode message) {  
+        if (message.has("id")) {  
+            long messageId = message.get("id").asLong();  
+            CompletableFuture<JsonNode> op = pendingOperations.remove(messageId);  
+            if (op != null) {  
+                op.complete(message);  
+            } else {  
+                if (message.has("method")) {  
+                    String method = message.get("method").asText();  
+                    if (method.equals("ping")) {  
+                        transport.executeOperationWithoutResponse(new McpPingResponse(messageId));  
+                        return;                    }  
+                }  
+                log.warn("Received response for unknown message id: {}", messageId);  
+            }  
+        } else if (message.has("method")) {  
+            String method = message.get("method").asText();  
+            if (method.equals("notifications/message")) {  
+                // this is a log message  
+                if (message.has("params")) {  
+                    if (logMessageConsumer != null) {  
+                        logMessageConsumer.accept(McpLogMessage.fromJson(message.get("params")));  
+                    }  
+                } else {  
+                    log.warn("Received log message without params: {}", message);  
+                }  
+            } else if (method.equals("notifications/tools/list_changed")) {  
+                onToolListUpdate.run();  
+            } else {  
+                log.warn("Received unknown message: {}", message);  
+            }  
+        }  
+    }  
+  
+    public void startOperation(Long id, CompletableFuture<JsonNode> future) {  
+        pendingOperations.put(id, future);  
+    }  
+}
+```
+
