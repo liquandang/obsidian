@@ -11,10 +11,14 @@
             "id": "343ce22f2932fc79",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "AI相关/如何抓取模型交互的信息.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "如何抓取模型交互的信息"
             }
           }
         ]
@@ -166,9 +170,9 @@
   },
   "active": "343ce22f2932fc79",
   "lastOpenFiles": [
+    "AI相关/MCP.md",
     "AI相关/langchain4j - AI service.md",
     "AI相关/SSE（server-send-events）.md",
-    "AI相关/MCP.md",
     "AI相关/AI应用架构新范式.md",
     "AI相关/Google A2A.md",
     "AI相关/Higress网关.md",
