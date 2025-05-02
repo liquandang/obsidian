@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI相关/Streamable HTTP.md",
+                "file": "AI相关/langchain4j - AI service.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Streamable HTTP"
+              "title": "langchain4j - AI service"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI相关/Streamable HTTP.md",
+                "file": "AI相关/AI应用架构新范式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Streamable HTTP 的反向链接列表"
+              "title": "AI应用架构新范式 的反向链接列表"
             }
           },
           {
@@ -168,30 +168,32 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "6a91f536e558659b",
+  "active": "343ce22f2932fc79",
   "lastOpenFiles": [
+    "AI相关/MCP.md",
+    "AI相关/langchain4j - AI service.md",
     "AI相关/AI应用架构新范式.md",
-    "AI相关/Spring AI Alibaba.md",
-    "AI相关/SSE（server-send-events）.md",
-    "AI相关/Streamable HTTP.md",
     "AI相关/Google A2A.md",
     "AI相关/Higress网关.md",
+    "AI相关/如何抓取模型交互的信息.md",
+    "Pasted image 20250427224700.png",
+    "Pasted image 20250427224553.png",
+    "Pasted image 20250427224540.png",
+    "Pasted image 20250427224043.png",
+    "Pasted image 20250427223827.png",
+    "Pasted image 20250427223805.png",
+    "Pasted image 20250427223634.png",
+    "Pasted image 20250427223414.png",
+    "AI相关/Spring AI Alibaba.md",
+    "AI相关/Streamable HTTP.md",
+    "AI相关/SSE（server-send-events）.md",
     "AI相关/LangGraph.md",
     "AI相关/LlamaIndex.md",
-    "AI相关/MCP.md",
     "Pasted image 20250426224235.png",
     "1什么是mcp.md",
     "Python/Python.md",
     "Pasted image 20250426212757.png",
-    "Pasted image 20250426214330.png",
     "README.md",
-    "v2-bb82edf5b8651051be151c279e7679e1_r.jpg",
-    "v2-cfeb270d4df0ba9e1b8cc6b5a05fdb86_r.jpg",
-    "Pasted image 20250426200553.png",
-    "Pasted image 20250426184650.png",
-    "Pasted image 20250426173306.png",
-    "Pasted image 20250426172418.png",
-    "Pasted image 20250426172037.png",
     "Python/python包.md",
     "欢迎.md",
     "Python"

@@ -678,10 +678,11 @@ public class JavaxServletHttpServletSseServerTransportProvider extends HttpServl
 
 - MCP是通用协议层的标准，类似于"AI领域的USB-C 接口"，定义了 LLM 与外部工具/数据源的通信格式，但不绑定任何特定模型或厂商，将复杂的函数调用抽象为客户端-服务器架构。
 
-	- **<font color='red'>缺点</font>**：需要为每个外部函数编写一个 JSON Schema 格式的功能说明，精心设计一个提示词模版，才能提高 Function Calling 响应的准确率，如果一个需求涉及到几十个外部系统，那设计成本是巨大，产品化成本极高（<font color='red'>每个 API 都需要硬编码，为不同平台反复适配，开发和维护成本极高</font>）。
+	- **<font color='red'>优点</font>**：统一 MCP 客户端和服务器的运行规范，并且要求 MCP 客户端和服务器之间，也统一按照某个既定的提示词模板进行通信，这样就能通过 MCP Server 加强全球开发者的协作，复用全球的开发成果。
 
 - Function Caling 是大模型厂商提供的专有能力，由大模型厂商定义，不同大模型厂商之间在接口定义和开发文档上存在差异；允许模型直接生成调用函数，触发外部API，依赖模型自身的上下文理解和结构化输出能力。
-	- **<font color='red'>优点</font>**：统一 MCP 客户端和服务器的运行规范，并且要求 MCP 客户端和服务器之间，也统一按照某个既定的提示词模板进行通信，这样就能通过 MCP Server 加强全球开发者的协作，复用全球的开发成果。
+	
+	-  **<font color='red'>缺点</font>**：需要为每个外部函数编写一个 JSON Schema 格式的功能说明，精心设计一个提示词模版，才能提高 Function Calling 响应的准确率，如果一个需求涉及到几十个外部系统，那设计成本是巨大，产品化成本极高（<font color='red'>每个 API 都需要硬编码，为不同平台反复适配，开发和维护成本极高</font>）。
 ![[Pasted image 20250426172418.png]]
 
 ## 5、MCP的本质与挑战
