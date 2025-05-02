@@ -435,6 +435,29 @@ tokenStream.onPartialResponse((String partialResponse) -> {
     .start();
 ```
 
+``` mermaid
+sequenceDiagram
+    participant User
+    participant TokenStream
+    participant QunarAiChatModel
+    participant AiServiceStreamingResponseHandler
+    participant ToolExecutor
+    participant MCP工具
+    participant ChatMemory
+
+    User->>TokenStream: start()
+    TokenStream->>QunarAiChatModel: streamingChatModel.chat(chatRequest, handler)
+    QunarAiChatModel->>AiServiceStreamingResponseHandler: 生成流式响应
+    AiServiceStreamingResponseHandler-->>TokenStream: onPartialResponse/completeResponse/error
+    AiServiceStreamingResponseHandler->>ToolExecutor: (如需工具) execute(toolRequest, memoryId)
+    ToolExecutor->>MCP工具: 实际工具调用
+    ToolExecutor-->>AiServiceStreamingResponseHandler: 返回工具结果
+    AiServiceStreamingResponseHandler->>ChatMemory: 工具结果/AI消息写入memory
+    AiServiceStreamingResponseHandler->>QunarAiChatModel: (如需多轮工具) 再次chat
+    AiServiceStreamingResponseHandler-->>TokenStream: 最终onCompleteResponse
+```
+
+
 接下来，我们重点关注start方法。
 ``` JAVA
 public void start() {  
@@ -902,3 +925,5 @@ import static dev.langchain4j.internal.ValidationUtils.ensureNotNull;
     }  
 }
 ```
+
+
