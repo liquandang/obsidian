@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI相关/如何抓取模型交互的信息.md",
+                "file": "AI相关/AI应用架构新范式.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "如何抓取模型交互的信息"
+              "title": "AI应用架构新范式"
             }
           }
         ]
@@ -170,13 +170,15 @@
   },
   "active": "343ce22f2932fc79",
   "lastOpenFiles": [
+    "AI相关/如何抓取模型交互的信息.md",
+    "AI相关/LangGraph.md",
+    "AI相关/LlamaIndex.md",
     "AI相关/MCP.md",
     "AI相关/langchain4j - AI service.md",
     "AI相关/SSE（server-send-events）.md",
     "AI相关/AI应用架构新范式.md",
     "AI相关/Google A2A.md",
     "AI相关/Higress网关.md",
-    "AI相关/如何抓取模型交互的信息.md",
     "Pasted image 20250427224700.png",
     "Pasted image 20250427224553.png",
     "Pasted image 20250427224540.png",
@@ -187,8 +189,6 @@
     "Pasted image 20250427223414.png",
     "AI相关/Spring AI Alibaba.md",
     "AI相关/Streamable HTTP.md",
-    "AI相关/LangGraph.md",
-    "AI相关/LlamaIndex.md",
     "Pasted image 20250426224235.png",
     "1什么是mcp.md",
     "Python/Python.md",
