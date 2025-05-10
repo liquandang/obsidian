@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/asyncio.md",
+                "file": "Python/Python.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "asyncio"
+              "title": "Python"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/asyncio.md",
+                "file": "Python/Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "asyncio 的反向链接列表"
+              "title": "Python 的反向链接列表"
             }
           },
           {
@@ -170,8 +170,8 @@
   },
   "active": "343ce22f2932fc79",
   "lastOpenFiles": [
-    "Python/python包.md",
     "Python/asyncio.md",
+    "Python/python包.md",
     "Python/Python.md",
     "AI相关/GATEWAY网关.md",
     "AI相关/MCP.md",
