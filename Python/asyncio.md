@@ -24,12 +24,19 @@ async def main():
     print("Got:", result)
 ```
 
-await 的工作机制：
+#### await 的工作机制：
 
 1. 挂起当前协程
 2. 将控制权交还给事件循环
 3. 当 awaitable 完成时，恢复协程执行
 4. 返回 awaitable 的结果或引发异常
+
+#### **`await` 的关键步骤**
+
+1. **挂起协程**：当执行到 `await` 时，当前协程会立即暂停，并返回一个 **可等待对象**（如 `Future`）。
+2. **注册回调**：事件循环会监听这个 `Future`，并在它完成时恢复协程。
+3. **让出控制权**：事件循环转而执行其他任务。
+
 ### 1.3 事件循环的角色
 事件循环是 asyncio 的核心，负责：
 
@@ -37,6 +44,34 @@ await 的工作机制：
 - 处理 IO 操作
 - 管理回调
 - 运行直到所有任务完成
+
+#### **事件循环的作用**
+
+- 事件循环是异步编程的核心，负责：
+    
+    1. **调度协程**：决定哪个协程在何时执行。
+    2. **监听 I/O 事件**：当某个 I/O 操作（如网络请求）完成时，唤醒对应的协程。
+
+#### **工作流程**
+
+1. 协程通过 `await` 暂停时，事件循环会记录它的状态（如“等待某个 Socket 数据”）。
+2. 事件循环继续执行其他就绪的协程。
+3. 当 I/O 操作完成（如收到网络响应），事件循环将对应的协程重新加入执行队列。
+
+```python
+# 伪代码
+while True:
+    # 检查哪些 I/O 操作已完成（通过操作系统 select/poll/epoll）
+    ready_events = poll_io_events()
+    
+    # 执行这些事件关联的回调（恢复协程）
+    for event in ready_events:
+        event.callback()
+
+    # 执行就绪的协程
+    run_ready_coroutines()
+```
+   
 ```python
 async def main():
     await asyncio.sleep(1)
@@ -46,6 +81,8 @@ loop = asyncio.get_event_loop()       # 1. 获取当前循环
 loop = asyncio.new_event_loop()       # 2. 创建新循环
 loop = asyncio.get_running_loop()     # 3. 获取正在运行的循环(必须在协程内调用)
 ```
+
+
 ## 二、可等待对象(Awaitables)深度解析
 可等待协程对象、task、future
 
@@ -216,3 +253,95 @@ async def main():
 
 asyncio.run(main())
 ```
+
+## 四、异步上下文管理
+异步上下文管理器通过 `async with` 语句使用，它需要实现两个特殊方法：
+
+- `__aenter__()` - 异步进入上下文
+- `__aexit__()` - 异步退出上下文
+```python
+import asyncio
+
+class AsyncContextManager:
+    async def __aenter__(self):
+        print("Entering context")
+        await asyncio.sleep(1)
+        return self  # 可以返回有用的对象
+    
+    async def __aexit__(self, exc_type, exc, tb):
+        print("Exiting context")
+        await asyncio.sleep(1)
+        # 可以处理异常，返回True表示抑制异常
+
+async def main():
+    async with AsyncContextManager() as manager:
+        print("Inside context")
+
+asyncio.run(main())
+```
+
+1. 异步上下文管理器必须与 `async with` 一起使用
+2. `__aenter__` 和 `__aexit__` 必须是协程函数（使用 `async def`）
+3. 在 `async with` 块内部可以正常使用 `await`
+4. Python 3.10+ 支持在异步上下文管理器中使用 `except` 和 `finally` 块
+
+异步上下文管理器是管理异步资源（如数据库连接、网络连接、锁等）的理想工具，可以确保资源被正确获取和释放。
+```python
+import asyncio  
+  
+import aiohttp  
+  
+async def fetch_url(url: str):  
+    connector = aiohttp.TCPConnector(ssl=False)  # 禁用SSL验证  
+  
+    async with aiohttp.ClientSession(connector = connector) as session:  
+        async with session.get(url) as response:  
+            return await response.text()  
+  
+async def main():  
+    context = await fetch_url("https://blog.csdn.net/weixin_40544270/article/details/147751411")  
+    print(context)  
+  
+if __name__ == '__main__':  
+    asyncio.run(main())
+```
+
+
+Python 3.7+ 提供了更简洁的方式来创建异步上下文管理器：
+```python
+from contextlib import asynccontextmanager
+import asyncio
+
+@asynccontextmanager
+async def async_context_manager():
+    print("Entering context")
+    await asyncio.sleep(1)
+    try:
+        yield "some value"  # 这个值会被赋给as后面的变量
+    finally:
+        print("Exiting context")
+        await asyncio.sleep(1)
+
+async def main():
+    async with async_context_manager() as value:
+        print(f"Inside context, got: {value}")
+
+asyncio.run(main())
+```
+
+我们来看一个数据库的例子：
+```python
+@asynccontextmanager
+async def get_db_connection():
+    conn = await async_connect_to_db()
+    try:
+        yield conn
+    finally:
+        await conn.close()
+
+async def query_db():
+    async with get_db_connection() as conn:
+        result = await conn.execute("SELECT * FROM table")
+        return result
+```
+
