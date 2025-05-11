@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI技术/如何抓取模型交互的信息.md",
+                "file": "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "如何抓取模型交互的信息"
+              "title": "第三届红杉资本AI峰会核心内容总结与思考"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 211.50043487548828
+    "width": 336.5004348754883
   },
   "right": {
     "id": "d9cecef0b5084b68",
@@ -167,8 +167,10 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "6a91f536e558659b",
+  "active": "343ce22f2932fc79",
   "lastOpenFiles": [
+    "AI技术/如何抓取模型交互的信息.md",
+    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "AI技术/GATEWAY网关.md",
     "AI洞察",
     "AI技术/langchain4j - AI service.md",
@@ -183,7 +185,6 @@
     "AI技术/Streamable HTTP.md",
     "AI技术/SSE（server-send-events）.md",
     "AI技术/Google A2A.md",
-    "AI技术/如何抓取模型交互的信息.md",
     "AI技术/LangGraph.md",
     "AI技术/LlamaIndex.md",
     "resources/Pasted image 20250427224700.png",
