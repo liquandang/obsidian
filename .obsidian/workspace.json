@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/asyncio.md",
+                "file": "AI相关/GATEWAY网关.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "asyncio"
+              "title": "GATEWAY网关"
             }
           }
         ]
@@ -169,32 +169,33 @@
   },
   "active": "343ce22f2932fc79",
   "lastOpenFiles": [
-    "AI相关/MCP.md",
+    "AI相关/langchain4j - AI service.md",
     "Python/asyncio.md",
+    "todo/README.md",
+    "resources/v2-bb82edf5b8651051be151c279e7679e1_r.jpg",
+    "todo/todo.md",
+    "AI相关/MCP.md",
     "AI相关/AI应用架构新范式.md",
     "Python/Python.md",
     "Python/python包.md",
     "AI相关/GATEWAY网关.md",
-    "AI相关/langchain4j - AI service.md",
     "AI相关/Streamable HTTP.md",
     "AI相关/SSE（server-send-events）.md",
     "AI相关/Google A2A.md",
     "AI相关/如何抓取模型交互的信息.md",
     "AI相关/LangGraph.md",
     "AI相关/LlamaIndex.md",
-    "Pasted image 20250427224700.png",
-    "Pasted image 20250427224553.png",
-    "Pasted image 20250427224540.png",
-    "Pasted image 20250427224043.png",
-    "Pasted image 20250427223827.png",
-    "Pasted image 20250427223805.png",
-    "Pasted image 20250427223634.png",
-    "Pasted image 20250427223414.png",
+    "resources/Pasted image 20250427224700.png",
+    "resources/Pasted image 20250427224553.png",
+    "resources/Pasted image 20250427224540.png",
+    "resources/Pasted image 20250427224043.png",
+    "resources/Pasted image 20250427223827.png",
+    "resources/Pasted image 20250427223805.png",
+    "resources/Pasted image 20250427223634.png",
+    "resources/Pasted image 20250427223414.png",
     "AI相关/Spring AI Alibaba.md",
-    "Pasted image 20250426224235.png",
+    "resources/Pasted image 20250426224235.png",
     "1什么是mcp.md",
-    "Pasted image 20250426212757.png",
-    "README.md",
     "欢迎.md",
     "Python"
   ]
