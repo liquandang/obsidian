@@ -11,12 +11,12 @@
             "id": "343ce22f2932fc79",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "pdf",
               "state": {
-                "file": "resources/Pasted image 20250511213906.png"
+                "file": "resources/24、微服务API网关Spring Cloud Gateway实战.pdf"
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250511213906"
+              "icon": "lucide-file-text",
+              "title": "24、微服务API网关Spring Cloud Gateway实战"
             }
           }
         ]
@@ -165,12 +165,13 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "6a91f536e558659b",
+  "active": "343ce22f2932fc79",
   "lastOpenFiles": [
-    "AI技术/MCP Server - Java SDK.md",
     "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c 1.png",
+    "resources/Pasted image 20250418204832.png",
     "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c.png",
     "resources/Pasted image 20250511213906.png",
+    "AI技术/MCP Server - Java SDK.md",
     "AI技术/MCP.md",
     "AI技术/MCP Client-langchain4j - AI service.md",
     "AI技术/SSE（server-send-events）.md",
