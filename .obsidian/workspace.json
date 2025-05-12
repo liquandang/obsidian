@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI技术/GATEWAY网关.md",
+                "file": "AI技术/MCP Server - Java SDK.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GATEWAY网关"
+              "title": "MCP Server - Java SDK"
             }
           }
         ]
@@ -169,22 +169,26 @@
   },
   "active": "343ce22f2932fc79",
   "lastOpenFiles": [
+    "bec5cf73-070f-424b-b1c2-bb04fa518b4c 1.png",
+    "bec5cf73-070f-424b-b1c2-bb04fa518b4c.png",
+    "Pasted image 20250511213906.png",
+    "AI技术/MCP.md",
+    "AI技术/MCP Client-langchain4j - AI service.md",
+    "AI技术/MCP Server - Java SDK.md",
+    "AI技术/SSE（server-send-events）.md",
+    "AI技术/GATEWAY网关.md",
     "24、微服务API网关Spring Cloud Gateway实战.pdf",
     "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "AI技术/如何抓取模型交互的信息.md",
-    "AI技术/GATEWAY网关.md",
     "AI洞察",
-    "AI技术/langchain4j - AI service.md",
     "Python/asyncio.md",
     "todo/README.md",
     "resources/v2-bb82edf5b8651051be151c279e7679e1_r.jpg",
     "todo/todo.md",
-    "AI技术/MCP.md",
     "AI技术/AI应用架构新范式.md",
     "Python/Python.md",
     "Python/python包.md",
     "AI技术/Streamable HTTP.md",
-    "AI技术/SSE（server-send-events）.md",
     "AI技术/Google A2A.md",
     "AI技术/LangGraph.md",
     "AI技术/LlamaIndex.md",
@@ -195,9 +199,7 @@
     "resources/Pasted image 20250427223827.png",
     "resources/Pasted image 20250427223805.png",
     "resources/Pasted image 20250427223634.png",
-    "resources/Pasted image 20250427223414.png",
     "AI技术/Spring AI Alibaba.md",
-    "resources/Pasted image 20250426224235.png",
     "1什么是mcp.md",
     "欢迎.md",
     "Python"
