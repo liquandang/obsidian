@@ -691,17 +691,12 @@ MCP才刚刚开始，很多的问题需要一一被解决。
 ![[Pasted image 20250426173306.png]]
 
 
+MCP哪些坑：[https://baijiahao.baidu.com/s?id=1829472267514879056&wfr=spider&for=pc](https://baijiahao.baidu.com/s?id=1829472267514879056&wfr=spider&for=pc)
 
-1、mcp遇到的坑
+======================================
 
-tomcat10
-公司环境不兼容
-网关问题
-
-2、java mcp
-https://modelcontextprotocol.io/sdk/java/mcp-overview
-
-
-3、官网
+官网
 https://modelcontextprotocol.io/introduction
+
+https://modelcontextprotocol.io/sdk/java/mcp-overview
 https://github.com/modelcontextprotocol/python-sdk

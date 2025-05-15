@@ -11,12 +11,14 @@
             "id": "343ce22f2932fc79",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "resources/24、微服务API网关Spring Cloud Gateway实战.pdf"
+                "file": "AI技术/Spring AI Alibaba.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "24、微服务API网关Spring Cloud Gateway实战"
+              "icon": "lucide-file",
+              "title": "Spring AI Alibaba"
             }
           }
         ]
@@ -76,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 305.51103591918945
+    "width": 345.5004348754883
   },
   "right": {
     "id": "d9cecef0b5084b68",
@@ -167,36 +169,38 @@
   },
   "active": "343ce22f2932fc79",
   "lastOpenFiles": [
+    "AI技术/RAG - LlamaIndex.md",
+    "AI技术/LangGraph.md",
+    "AI技术/Google A2A.md",
+    "AI技术/GATEWAY网关.md",
+    "AI技术/模块化RAG - todo.md",
+    "Spring/Spring Webflux.md",
+    "AI技术/MCP.md",
+    "AI技术/AI应用架构新范式.md",
+    "AI技术/MCP Client-langchain4j - AI service.md",
+    "Python/asyncio.md",
+    "Python/Python.md",
+    "Python/python包.md",
+    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
+    "AI技术/Streamable HTTP.md",
+    "AI技术/SSE（server-send-events）.md",
+    "AI技术/MCP Server - Java SDK.md",
+    "todo/todo.md",
+    "Spring",
+    "resources/24、微服务API网关Spring Cloud Gateway实战.pdf",
     "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c 1.png",
     "resources/Pasted image 20250418204832.png",
     "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c.png",
     "resources/Pasted image 20250511213906.png",
-    "AI技术/MCP Server - Java SDK.md",
-    "AI技术/MCP.md",
-    "AI技术/MCP Client-langchain4j - AI service.md",
-    "AI技术/SSE（server-send-events）.md",
-    "AI技术/GATEWAY网关.md",
-    "resources/24、微服务API网关Spring Cloud Gateway实战.pdf",
-    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "AI技术/如何抓取模型交互的信息.md",
     "AI洞察",
-    "Python/asyncio.md",
     "todo/README.md",
     "resources/v2-bb82edf5b8651051be151c279e7679e1_r.jpg",
-    "todo/todo.md",
-    "AI技术/AI应用架构新范式.md",
-    "Python/Python.md",
-    "Python/python包.md",
-    "AI技术/Streamable HTTP.md",
-    "AI技术/Google A2A.md",
-    "AI技术/LangGraph.md",
-    "AI技术/LlamaIndex.md",
     "resources/Pasted image 20250427224700.png",
     "resources/Pasted image 20250427224553.png",
     "resources/Pasted image 20250427224540.png",
     "resources/Pasted image 20250427224043.png",
     "resources/Pasted image 20250427223827.png",
-    "resources/Pasted image 20250427223805.png",
     "AI技术/Spring AI Alibaba.md",
     "1什么是mcp.md",
     "欢迎.md",
