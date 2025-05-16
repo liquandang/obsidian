@@ -11,14 +11,12 @@
             "id": "343ce22f2932fc79",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "AI技术/Spring AI Alibaba.md",
-                "mode": "source",
-                "source": false
+                "file": "resources/AI 应用 & AI Agent 开发新范式.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Spring AI Alibaba"
+              "icon": "lucide-file-text",
+              "title": "AI 应用 & AI Agent 开发新范式"
             }
           }
         ]
@@ -167,8 +165,11 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "343ce22f2932fc79",
+  "active": "6a91f536e558659b",
   "lastOpenFiles": [
+    "AI技术/AI应用架构新范式.md",
+    "resources/AI 应用 & AI Agent 开发新范式.pdf",
+    "AI技术/Spring AI Alibaba.md",
     "AI技术/RAG - LlamaIndex.md",
     "AI技术/LangGraph.md",
     "AI技术/Google A2A.md",
@@ -176,7 +177,6 @@
     "AI技术/模块化RAG - todo.md",
     "Spring/Spring Webflux.md",
     "AI技术/MCP.md",
-    "AI技术/AI应用架构新范式.md",
     "AI技术/MCP Client-langchain4j - AI service.md",
     "Python/asyncio.md",
     "Python/Python.md",
@@ -201,7 +201,6 @@
     "resources/Pasted image 20250427224540.png",
     "resources/Pasted image 20250427224043.png",
     "resources/Pasted image 20250427223827.png",
-    "AI技术/Spring AI Alibaba.md",
     "1什么是mcp.md",
     "欢迎.md",
     "Python"
