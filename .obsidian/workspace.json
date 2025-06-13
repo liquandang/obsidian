@@ -8,15 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "343ce22f2932fc79",
+            "id": "9eb4aa5f97ada074",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "resources/AI 应用 & AI Agent 开发新范式.pdf"
+                "file": "AI工具包/AI工具分类.md",
+                "mode": "preview",
+                "source": true
               },
-              "icon": "lucide-file-text",
-              "title": "AI 应用 & AI Agent 开发新范式"
+              "icon": "lucide-file",
+              "title": "AI工具分类"
             }
           }
         ]
@@ -76,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 345.5004348754883
+    "width": 281.5004348754883
   },
   "right": {
     "id": "d9cecef0b5084b68",
@@ -165,26 +167,29 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "6a91f536e558659b",
+  "active": "9eb4aa5f97ada074",
   "lastOpenFiles": [
+    "AI技术/MCP.md",
+    "AI工具包/AI工具分类.md",
+    "AI技术/LangGraph.md",
+    "AI技术/如何抓取模型交互的信息.md",
+    "AI工具包",
     "AI技术/AI应用架构新范式.md",
-    "resources/AI 应用 & AI Agent 开发新范式.pdf",
+    "AI技术/Streamable HTTP.md",
+    "AI技术/SSE（server-send-events）.md",
     "AI技术/Spring AI Alibaba.md",
     "AI技术/RAG - LlamaIndex.md",
-    "AI技术/LangGraph.md",
+    "AI技术/MCP Server - Java SDK.md",
+    "AI技术/MCP Client-langchain4j - AI service.md",
     "AI技术/Google A2A.md",
+    "resources/AI 应用 & AI Agent 开发新范式.pdf",
     "AI技术/GATEWAY网关.md",
     "AI技术/模块化RAG - todo.md",
     "Spring/Spring Webflux.md",
-    "AI技术/MCP.md",
-    "AI技术/MCP Client-langchain4j - AI service.md",
     "Python/asyncio.md",
     "Python/Python.md",
     "Python/python包.md",
     "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
-    "AI技术/Streamable HTTP.md",
-    "AI技术/SSE（server-send-events）.md",
-    "AI技术/MCP Server - Java SDK.md",
     "todo/todo.md",
     "Spring",
     "resources/24、微服务API网关Spring Cloud Gateway实战.pdf",
@@ -192,7 +197,6 @@
     "resources/Pasted image 20250418204832.png",
     "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c.png",
     "resources/Pasted image 20250511213906.png",
-    "AI技术/如何抓取模型交互的信息.md",
     "AI洞察",
     "todo/README.md",
     "resources/v2-bb82edf5b8651051be151c279e7679e1_r.jpg",
