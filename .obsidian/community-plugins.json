@@ -2,5 +2,7 @@
   "obsidian-git",
   "github-sync",
   "tars",
-  "dynamic-outline"
+  "highlightr-plugin",
+  "image-converter",
+  "obsidian-quiet-outline"
 ]

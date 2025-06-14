@@ -2,5 +2,6 @@
   "accentColor": "",
   "baseFontSize": 13,
   "baseFontSizeAction": true,
-  "translucency": true
+  "translucency": true,
+  "cssTheme": "Atom"
 }
