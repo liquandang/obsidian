@@ -438,7 +438,7 @@ training_args:
     - **必须做手动评测**: 定期加载 checkpoints，实际对话感受效果。
     - **用好工具**: 开启 Early Stopping 让程序帮你自动判断。
 
-### 6、效果展示
+### 6、效果展示（效果很好）
 
 训练前：
 
@@ -451,5 +451,8 @@ training_args:
 ![[image-7.png]]
 
 可以看到训练后，更加符合实际情况。
+
+
+<mark style="background: #BBFABBA6;">训练数据如下： 通过gemini2.5pro生成。</mark>
 
 ![[alpaca_zh_qunar.json]]
