@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ddfa38802589b5fa",
+        "id": "286e0fb0cc536510",
         "type": "tabs",
         "children": [
           {
-            "id": "9eb4aa5f97ada074",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AI工具包/AI工具分类.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "AI工具分类"
-            }
-          },
-          {
-            "id": "fa422023acd5db60",
+            "id": "f4d8043c1a31f0a5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -35,8 +21,7 @@
               "title": "LORA模型微调"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -156,7 +141,7 @@
               "type": "outline",
               "state": {
                 "file": "AI技术/LORA模型微调.md",
-                "followCursor": false,
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -170,8 +155,8 @@
             "state": {
               "type": "quiet-outline",
               "state": {},
-              "icon": "lines-of-text",
-              "title": "Quiet Outline"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -179,7 +164,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 360.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,27 +174,39 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
       "github-sync:Sync with Remote": false,
-      "markdown-importer:打开 Markdown 格式转换器": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f7dfb1254bf24297",
+  "active": "f4d8043c1a31f0a5",
   "lastOpenFiles": [
-    "AI技术/如何抓取模型交互的信息.md",
+    "resources/image-7.png",
     "AI技术/LORA模型微调.md",
-    "Pasted image 20250614183915.png",
-    "Pasted image 20250614183315.png",
+    "alpaca_zh_qunar.json",
+    "resources/image-6.png",
+    "resources/image-5.png",
+    "AI技术/LangGraph.md",
+    "AI技术/MCP.md",
+    "resources/image-4.png",
+    "resources/image-3.png",
+    "resources/image-2.png",
+    "resources/image-1.png",
+    "resources/image.png",
     "AI工具包/AI工具分类.md",
-    "Pasted image 20250614181721.png",
-    "Pasted image 20250614175326.png",
+    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
+    "未命名.canvas",
+    "Excalidraw/Drawing 2025-06-14 22.34.22.excalidraw.md",
+    "Excalidraw",
+    "resources/Pasted image 20250614175326.png",
+    "AI技术/如何抓取模型交互的信息.md",
+    "resources/Pasted image 20250614183915.png",
     "AI技术/Spring AI Alibaba.md",
     "AI技术/模块化RAG - todo.md",
-    "AI技术/MCP.md",
     "AI技术/Google A2A.md",
     "AI技术/GATEWAY网关.md",
     "AI技术/AI应用架构新范式.md",
-    "AI技术/LangGraph.md",
     "AI工具包",
     "AI技术/Streamable HTTP.md",
     "AI技术/SSE（server-send-events）.md",
@@ -221,18 +218,11 @@
     "Python/asyncio.md",
     "Python/Python.md",
     "Python/python包.md",
-    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "todo/todo.md",
     "Spring",
     "resources/24、微服务API网关Spring Cloud Gateway实战.pdf",
-    "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c 1.png",
-    "resources/Pasted image 20250418204832.png",
-    "resources/bec5cf73-070f-424b-b1c2-bb04fa518b4c.png",
-    "resources/Pasted image 20250511213906.png",
     "AI洞察",
     "todo/README.md",
-    "resources/v2-bb82edf5b8651051be151c279e7679e1_r.jpg",
-    "resources/Pasted image 20250427224700.png",
     "1什么是mcp.md",
     "欢迎.md",
     "Python"
