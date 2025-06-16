@@ -456,3 +456,8 @@ training_args:
 <mark style="background: #BBFABBA6;">训练数据如下： 通过gemini2.5pro生成。</mark>
 
 ![[alpaca_zh_qunar.json]]
+
+
+模型导出：
+
+![[image.png]]
