@@ -13,28 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI技术/MCP.md",
+                "file": "AI技术/Spring AI Alibaba.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MCP"
-            }
-          },
-          {
-            "id": "2a4a21123adb803f",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "resources/image-4 1.png"
-              },
-              "icon": "lucide-image",
-              "title": "image-4 1"
+              "title": "Spring AI Alibaba"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -153,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "resources/image-4 1.png",
+                "file": "AI技术/Spring AI Alibaba.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "image-4 1 的大纲"
+              "title": "Spring AI Alibaba 的大纲"
             }
           },
           {
@@ -193,26 +180,34 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6a91f536e558659b",
+  "active": "f4d8043c1a31f0a5",
   "lastOpenFiles": [
-    "AI技术/MCP-BrowserTools浏览器插件.md",
+    "AI技术/RAG - LlamaIndex.md",
+    "AI技术/LORA模型微调.md",
+    "AI技术/LangGraph.md",
+    "AI技术/Google A2A.md",
+    "AI技术/GATEWAY网关.md",
+    "AI技术/MCP/Streamable HTTP.md",
+    "AI技术/MCP/SSE（server-send-events）.md",
+    "AI技术/MCP/MCP-BrowserTools浏览器插件.md",
+    "AI技术/MCP/MCP Server - Java SDK.md",
+    "AI技术/MCP/MCP Client-langchain4j - AI service.md",
+    "AI技术/MCP/MCP.md",
     "resources/image-4 1.png",
+    "AI技术/MCP",
     "resources/image-3 1.png",
     "resources/image-2 1.png",
     "resources/image-1 1.png",
-    "AI技术/MCP.md",
     "todo/todo.md",
     "resources/image 2.png",
     "todo/README.md",
     "AI技术/模块化RAG - todo.md",
-    "AI技术/LORA模型微调.md",
     "AI工具包/AI工具分类.md",
     "resources/image 1.png",
     "resources/image-7.png",
     "alpaca_zh_qunar.json",
     "resources/image-6.png",
     "resources/image-5.png",
-    "AI技术/LangGraph.md",
     "resources/image-4.png",
     "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "未命名.canvas",
@@ -220,15 +215,8 @@
     "Excalidraw",
     "AI技术/如何抓取模型交互的信息.md",
     "AI技术/Spring AI Alibaba.md",
-    "AI技术/Google A2A.md",
-    "AI技术/GATEWAY网关.md",
     "AI技术/AI应用架构新范式.md",
     "AI工具包",
-    "AI技术/Streamable HTTP.md",
-    "AI技术/SSE（server-send-events）.md",
-    "AI技术/RAG - LlamaIndex.md",
-    "AI技术/MCP Server - Java SDK.md",
-    "AI技术/MCP Client-langchain4j - AI service.md",
     "resources/AI 应用 & AI Agent 开发新范式.pdf",
     "Spring/Spring Webflux.md",
     "Python/asyncio.md",
