@@ -187,14 +187,14 @@ LORA如何工作：
 <mark style="background: #FF5582A6;">**发现三：LoRA 的秩 r 无需很大，极小的秩就能发挥巨大作用。**  </mark>
 一个自然的疑问是：秩 r 是不是越大越好？
 
-|   |   |   |
-|---|---|---|
-|秩 (r)|WikiSQL (Acc.%)|MultiNLI (Acc.%)|
-|1|73.4|91.3|
-|2|73.3|91.4|
-|4|73.7|91.3|
-|8|73.8|91.6|
-|64|73.5|91.4|
+|       |                 |                  |
+| ----- | --------------- | ---------------- |
+| 秩 (r) | WikiSQL (Acc.%) | MultiNLI (Acc.%) |
+| 1     | 73.4            | 91.3             |
+| 2     | 73.3            | 91.4             |
+| 4     | 73.7            | 91.3             |
+| 8     | 73.8            | 91.6             |
+| 64    | 73.5            | 91.4             |
 
 **惊人发现：** 秩 r 并不总是越大越好。在很多任务上，r 设置为 **1, 2, 4, 8** 这样非常小的值，就已经足够了。这强有力地证明了论文的核心假设——**模型适应的权重变化确实是低秩的**。
 
@@ -204,7 +204,7 @@ LORA如何工作：
 
 使用魔塔社区提供的阿里云免费环境，因为Llama-Factory对环境配置有一定要求，选择GPU环境的时候注意。
 
-![[image.png]]
+![[image 1.png]]
 
 <mark style="background: #BBFABBA6;">很不幸的是，使用魔塔社区提供的GPU环境，在启动Llama-Factory或进行模型训练的时候会报错，主要原因是魔塔默认提供的环境安装了很多的python包，导致各种冲突。使用了各种办法，最终采取使用anaconda创建工作空间解决。</mark>
 
@@ -257,7 +257,7 @@ pip install -e ".[torch,metrics]" --no-build-isolation
 llamafactory-cli version
 ```
 
-![[image-1.png]]
+![[image-1 1.png]]
 
 启动 llama-factory
 
@@ -284,15 +284,15 @@ deepseek-r1模型位置: /mnt/workspace/huggingface/hub/models--deepseek-ai--Dee
 
 
 启动成功后，点击http://127.0.0.1:7860，阿里云自动映射外网地址：https://1148143-proxy-7860.dsw-gateway-cn-hangzhou.data.aliyun.com/ （<mark style="background: #FF5582A6;">每次启动这个地址都会变</mark>）
-![[image-2.png]]
+![[image-2 1.png]]
 
-![[image-3.png]]
+![[image-3 1.png]]
 
 ### 4、数据集准备
 
 llama-factory默认提供了很多的训练数据，如果希望自定义数据集，需要将数据集添加到data_info.json中。
 
-![[image-4.png]]
+![[image-4 1.png]]
 
 #### QA：<mark style="background: #BBFABBA6;">数据集准备多少合适？</mark>
 
@@ -460,4 +460,4 @@ training_args:
 
 模型导出：
 
-![[image.png]]
+![[image 1.png]]
