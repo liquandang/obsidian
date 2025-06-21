@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
+                "file": "AI技术/GPT模型命名全解析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "第三届红杉资本AI峰会核心内容总结与思考"
+              "title": "GPT模型命名全解析"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
+                "file": "AI技术/GPT模型命名全解析.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "第三届红杉资本AI峰会核心内容总结与思考 的大纲"
+              "title": "GPT模型命名全解析 的大纲"
             }
           },
           {
@@ -180,12 +180,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f4d8043c1a31f0a5",
+  "active": "6a91f536e558659b",
   "lastOpenFiles": [
+    "resources/image 3.png",
+    "AI技术/MCP/MCP-BrowserTools浏览器插件.md",
+    "AI技术/GPT模型命名全解析.md",
+    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "AI工具包/AI工具分类.md",
     "AI技术/MCP/Streamable HTTP.md",
     "AI技术/MCP/SSE（server-send-events）.md",
-    "AI技术/MCP/MCP-BrowserTools浏览器插件.md",
     "AI技术/Spring AI Alibaba.md",
     "AI技术/RAG - LlamaIndex.md",
     "AI技术/LORA模型微调.md",
@@ -210,7 +213,6 @@
     "resources/image-6.png",
     "resources/image-5.png",
     "resources/image-4.png",
-    "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "未命名.canvas",
     "Excalidraw/Drawing 2025-06-14 22.34.22.excalidraw.md",
     "Excalidraw",
@@ -225,7 +227,6 @@
     "Spring",
     "resources/24、微服务API网关Spring Cloud Gateway实战.pdf",
     "AI洞察",
-    "1什么是mcp.md",
     "Python"
   ]
 }
