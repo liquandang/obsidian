@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "286e0fb0cc536510",
+        "id": "cc6201cb380df7ab",
         "type": "tabs",
         "children": [
           {
-            "id": "f4d8043c1a31f0a5",
+            "id": "e544cd0694c15d97",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "resources/image 4.png"
+                "file": "AI技术/Multi-Agent FrameWork/Multi-Agent框架对比.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "image 4"
+              "icon": "lucide-file",
+              "title": "Multi-Agent框架对比"
             }
           }
         ]
@@ -138,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "resources/image 4.png",
+                "file": "AI技术/Multi-Agent FrameWork/Multi-Agent框架对比.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "image 4 的大纲"
+              "title": "Multi-Agent框架对比 的大纲"
             }
           },
           {
@@ -178,8 +180,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6a91f536e558659b",
+  "active": "e544cd0694c15d97",
   "lastOpenFiles": [
+    "resources/image 4.png",
     "AI技术/Multi-Agent FrameWork/Multi-Agent框架对比.md",
     "resources/image-6 1.png",
     "resources/image-5 1.png",
@@ -187,7 +190,6 @@
     "resources/image-3 2.png",
     "resources/image-2 2.png",
     "resources/image-1 2.png",
-    "resources/image 4.png",
     "todo/todo.md",
     "AI技术/Multi-Agent FrameWork/Drawing 2025-06-21 10.59.39.excalidraw.md",
     "AI技术/Multi-Agent FrameWork/LangGraph.md",

@@ -90,7 +90,7 @@ graph TD
 ### 1、LangGraph
 [[LangGraph]]
 
-### 2、AutoGen
+### 2、AutoGen（只是浅显阅读，待深入研究）
 doc文档地址：[autogen](https://microsoft.github.io/autogen/stable/index.html#)
 ![[image-1 2.png|467x310]]
 AutoGen 生态系统提供了创建 AI 代理所需的一切，尤其是多代理工作流——框架、开发人员工具和应用程序。
