@@ -442,11 +442,11 @@ training_args:
 
 训练前：
 
-![[image-5.png]]
+![[image-5 1.png]]
 
 
 训练后：
-![[image-6.png]]
+![[image-6 1.png]]
 训练内容：
 ![[image-7.png]]
 
