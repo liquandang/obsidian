@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI技术/Multi-Agent FrameWork/Multi-Agent框架对比.md",
+                "file": "AI技术/MCP/MCP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Multi-Agent框架对比"
+              "title": "MCP"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 223.50260543823242
+    "width": 347.5026054382324
   },
   "right": {
     "id": "d9cecef0b5084b68",
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI技术/Multi-Agent FrameWork/Multi-Agent框架对比.md",
+                "file": "AI技术/MCP/MCP.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Multi-Agent框架对比 的大纲"
+              "title": "MCP 的大纲"
             }
           },
           {
@@ -182,8 +182,12 @@
   },
   "active": "e544cd0694c15d97",
   "lastOpenFiles": [
-    "resources/image 4.png",
+    "AI技术/MCP/MCP Client-langchain4j - AI service.md",
+    "AI技术/Multi-Agent FrameWork/LangGraph.md",
     "AI技术/Multi-Agent FrameWork/Multi-Agent框架对比.md",
+    "AI技术/MCP/MCP-BrowserTools浏览器插件.md",
+    "AI技术/MCP/MCP Server - Java SDK.md",
+    "resources/image 4.png",
     "resources/image-6 1.png",
     "resources/image-5 1.png",
     "resources/image-4 2.png",
@@ -192,12 +196,10 @@
     "resources/image-1 2.png",
     "todo/todo.md",
     "AI技术/Multi-Agent FrameWork/Drawing 2025-06-21 10.59.39.excalidraw.md",
-    "AI技术/Multi-Agent FrameWork/LangGraph.md",
     "AI技术/Multi-Agent FrameWork/未命名.canvas",
     "AI技术/Multi-Agent FrameWork",
     "AI技术/GPT模型命名全解析.md",
     "resources/image 3.png",
-    "AI技术/MCP/MCP-BrowserTools浏览器插件.md",
     "AI洞察/第三届红杉资本AI峰会核心内容总结与思考.md",
     "AI工具包/AI工具分类.md",
     "AI技术/MCP/Streamable HTTP.md",
@@ -207,8 +209,6 @@
     "AI技术/LORA模型微调.md",
     "AI技术/Google A2A.md",
     "AI技术/GATEWAY网关.md",
-    "AI技术/MCP/MCP Server - Java SDK.md",
-    "AI技术/MCP/MCP Client-langchain4j - AI service.md",
     "AI技术/MCP/MCP.md",
     "resources/image-4 1.png",
     "AI技术/MCP",
