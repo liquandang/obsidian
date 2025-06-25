@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "todo/README.md",
+                "file": "todo/todo123.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "todo123"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "todo/README.md",
+                "file": "todo/todo123.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "README 的大纲"
+              "title": "todo123 的大纲"
             }
           },
           {
@@ -182,7 +182,8 @@
   },
   "active": "e544cd0694c15d97",
   "lastOpenFiles": [
-    "todo/todo.md",
+    "todo/README.md",
+    "todo/todo123.md",
     "AI技术/MCP/MCP.md",
     "AI技术/MCP/MCP Client-langchain4j - AI service.md",
     "AI技术/Multi-Agent FrameWork/LangGraph.md",
@@ -213,7 +214,6 @@
     "resources/image-4 1.png",
     "AI技术/MCP",
     "resources/image-3 1.png",
-    "todo/README.md",
     "AI技术/模块化RAG - todo.md",
     "alpaca_zh_qunar.json",
     "未命名.canvas",
