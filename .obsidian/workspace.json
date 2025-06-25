@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "todo/todo123.md",
+                "file": "todo/TODO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "todo123"
+              "title": "TODO"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "todo/todo123.md",
+                "file": "todo/TODO.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "todo123 的大纲"
+              "title": "TODO 的大纲"
             }
           },
           {
@@ -183,7 +183,7 @@
   "active": "e544cd0694c15d97",
   "lastOpenFiles": [
     "todo/README.md",
-    "todo/todo123.md",
+    "todo/TODO.md",
     "AI技术/MCP/MCP.md",
     "AI技术/MCP/MCP Client-langchain4j - AI service.md",
     "AI技术/Multi-Agent FrameWork/LangGraph.md",
