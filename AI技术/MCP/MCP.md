@@ -42,7 +42,7 @@ MCP 采用**客户端-服务器（Client-Server）架构**，其核心设计如�
 
 MCP 协议支持两种主要的通信机制：基于标准输入输出的本地通信和基于[SSE](https://zhida.zhihu.com/search?content_id=254488153&content_type=Article&match_order=1&q=SSE&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NDU4MzcwNTEsInEiOiJTU0UiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNTQ0ODgxNTMsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.pSipZ7M_X8jwE-TOO_a-Xx9wJ5SBy424kmLX73m86E0&zhida_source=entity)（[Server-Sent Events](https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Server-sent_events)）的远程通信。
 
-这两种机制都使用 [JSON-RPC 2.0](https://link.zhihu.com/?target=https%3A//www.jsonrpc.org/specification) 格式进行消息传输，确保了通信的标准化和可扩展性。
+这两种机制都使用 [JSON-RPC 2.0](https://link.zhihu.com/?target=https%3A//www.jsonrpc.org/specification) 格式进行消息传输，确保了通信的标准化和可扩展性。关于JSON-RPC 2.0中文翻译见：[中文翻译](https://wiki.geekdream.com/Specification/json-rpc_2.0.html)
 
 - 本地通信**：**通过 stdio 传输数据，适用于在同一台机器上运行的客户端和服务器之间的通信。
 - 远程通信**：**利用 [[SSE（server-send-events）]] 与 HTTP 结合，实现跨网络的实时数据传输，适用于需要访问远程资源或分布式部署的场景。
